@@ -1,0 +1,7 @@
+REMOTE_HOSTS=('user@ip:/opt/support/test' 'user@ip:/opt/support/test2')
+
+for HOST in  ${REMOTE_HOSTS[@]}
+do
+local_dir=`echo $HOST | awk -F"@" '{print $2}' | awk -F":" '{print $1}'`
+rsync -ru $HOST $local_dir
+done

@@ -1,0 +1,17 @@
+#!/bin/bash
+main_path="/mnt/nfsstorage/MDB/files/020540003431"
+requests=('27440')
+count_all=0
+for i in ${requests[@]}
+do
+        rm -rf $i.txt
+        echo "Вложения заявки $i: " >> $i.txt
+        du -h $main_path/заявка_$i/* | awk -F "/" ' { print $1 $8 } ' >> $i.txt
+        echo " " >> $i.txt
+        file_count=`ls -l $main_path/заявка_$i/ | grep "-" |wc -l `
+        echo "Количество файлов = $file_count" >> $i.txt
+        req_size=`du -sh $main_path/заявка_$i/ | awk ' { print $1 } ' `
+        echo "Размер заявки $i: $req_size" >> $i.txt
+        echo ". . . . . . . . . . . . . . . . . . . . . " >> $i.txt
+        echo " " >> $i.txt
+done

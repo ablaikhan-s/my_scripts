@@ -1,0 +1,1 @@
+sed -i "s/"saparov_a"/"support"/g" find_logs.sh

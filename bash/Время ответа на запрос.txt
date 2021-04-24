@@ -1,0 +1,1 @@
+sudo tail -fn 20000 /var/log/nginx/access.log | awk ' $10>180000 { print "req_time: |" $10/60000 "m| " $4 "]  " "status: " $9 " ip: "$1 " url: " $6 " " $7 " " $8 }'

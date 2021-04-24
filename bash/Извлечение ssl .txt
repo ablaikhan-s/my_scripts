@@ -1,0 +1,2 @@
+openssl pkcs12 -in INFILE.p12 -out OUTFILE.crt -nodes -nokeys
+openssl pkcs12 -in INFILE.p12 -out OUTFILE.key -nodes -nocerts

@@ -1,0 +1,1 @@
+cat /var/log/nginx/access.log | grep 192.168 | sed 's/equest_length=/equest_length= /g' | sed 's/\"/\ \"/g' |  awk '{print  $20/1024/1024 "M " $1 " " $4}'  | sort -n | tail 
